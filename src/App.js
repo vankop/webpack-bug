@@ -1,6 +1,7 @@
 import React from 'react';
 import Form from './components/Form';
 import MessagesList from './components/MessagesList';
+
 const URL = 'http://localhost:3000';
 
 class App extends React.Component {
@@ -10,7 +11,7 @@ class App extends React.Component {
         this.state = {
             nick: '',
             message: '',
-            serverMessages:[]
+            serverMessages: []
         };
         setInterval(this.getMessages.bind(this), 1000);
     }
@@ -29,7 +30,7 @@ class App extends React.Component {
             }
         };
 
-        xhr.onerror = function() {
+        xhr.onerror = function () {
             console.log('Запрос не удался');
         };
     };
@@ -53,13 +54,13 @@ class App extends React.Component {
         const newServerMessages = JSON.parse(response);
         this.setState({
             serverMessages: newServerMessages
-    });
+        });
     };
 
-    render(){
-        return<form>
-    <h1>Hello world</h1>
-            <Form postMessage = {(newMessage) => this.postMessage(newMessage)}/>
+    render() {
+        return <form>
+            <h1>Hello world</h1>
+            <Form postMessage={(newMessage) => this.postMessage(newMessage)}/>
             <MessagesList messages={this.state.serverMessages}/>
         </form>
     }

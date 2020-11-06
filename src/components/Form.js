@@ -1,5 +1,5 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import {shallow} from 'enzyme';
 
 class Form extends React.Component {
     constructor() {
@@ -44,4 +44,5 @@ class Form extends React.Component {
         </form>;
     }
 }
+
 export default Form;

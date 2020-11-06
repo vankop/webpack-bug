@@ -1,5 +1,5 @@
 const paths = require('./paths');
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const {CleanWebpackPlugin} = require('clean-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
@@ -10,7 +10,7 @@ module.exports = {
         filename: '[name].bundle.js',
         publicPath: '/',
     },
-    plugins:[
+    plugins: [
         new CleanWebpackPlugin(),
         new CopyWebpackPlugin({
             patterns: [
@@ -18,18 +18,18 @@ module.exports = {
                     from: paths.static,
                     to: paths.build,
                     globOptions: {
-                    ignore: ['**/index.html']
+                        ignore: ['**/index.html']
                     },
                 },
             ],
         }),
-       new HtmlWebpackPlugin({
-          template: paths.static + '/index.html',
-          filename: 'index.html',
+        new HtmlWebpackPlugin({
+            template: paths.static + '/index.html',
+            filename: 'index.html',
         }),
     ],
-    module:{
-        rules:[
+    module: {
+        rules: [
             {
                 test: /\.js$/,
                 exclude: /node_modules/,
