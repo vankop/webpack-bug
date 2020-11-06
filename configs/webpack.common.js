@@ -36,5 +36,8 @@ module.exports = {
                 use: ['babel-loader'],
             },
         ]
+    },
+    resolve: {
+        alias: { "stream": require.resolve("stream-browserify") }
     }
 };
